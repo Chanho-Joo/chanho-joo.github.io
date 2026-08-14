@@ -98,11 +98,11 @@ nav a {
   padding-bottom: 80px;
 }
 
-.Profile1-image-wrapper {
+.profile-image-wrapper {
   width: 220px;
 }
 
-.Profile1-image {
+.profile-image {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -305,7 +305,7 @@ h2 {
     padding-bottom: 70px;
   }
 
-  .Profile1-image-wrapper {
+  .profile-image-wrapper {
     width: min(220px, 70%);
   }
 
