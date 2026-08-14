@@ -10,225 +10,339 @@
 
   <meta
     name="description"
-    content="Personal academic website of Chan Ho Joo, an economics researcher at Seoul National University."
+    content="Personal academic website of Chanho Joo, an applied microeconomist at Seoul National University."
   >
 
-  <title>Chan Ho Joo | Economics</title>
+  <title>Chanho Joo | Applied Microeconomist</title>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="container nav-container">
+  <!-- ==================================================
+       Header
+  =================================================== -->
 
-      <a class="site-name" href="#top">
-        Chan Ho Joo
+  <header class="site-header">
+
+    <div class="site-shell header-inner">
+
+      <a
+        class="monogram"
+        href="#top"
+        aria-label="Chanho Joo homepage"
+      >
+        CJ
       </a>
 
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#contact">Contact</a>
-        <a href="chanho-joo-cv.pdf" target="_blank">CV</a>
+      <nav class="main-navigation" aria-label="Main navigation">
+
+        <a href="#research">
+          Research
+        </a>
+
+        <a href="#news">
+          News
+        </a>
+
+        <a
+          href="./chanho-joo-cv.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          CV
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+        <a
+          class="language-link"
+          href="./ko/"
+        >
+          한국어
+        </a>
+
       </nav>
 
     </div>
+
   </header>
 
 
   <main id="top">
 
-    <section class="hero container">
+    <!-- ==================================================
+         Hero
+         Photo on the left, text on the right
+    =================================================== -->
 
-      <div class="profile-image-wrapper">
-        <img
-          class="profile-image"
-          src="Profile1.JPG"
-          alt="Portrait of Chan Ho Joo"
-        >
-      </div>
+    <section class="hero" aria-labelledby="hero-title">
 
-      <div class="hero-content">
+      <div class="site-shell hero-grid">
 
-        <p class="eyebrow">
-          Economics Researcher
-        </p>
+        <!-- Profile photo -->
 
-        <h1>Chan Ho Joo</h1>
+        <div class="portrait-column">
 
-        <p class="position">
-          Ph.D. Student in Economics<br>
-          Seoul National University
-        </p>
+          <div class="portrait-frame">
 
-        <p class="research-fields">
-          Labor Economics · Economics of Education ·
-          Family Economics · Applied Microeconomics
-        </p>
+            <img
+              src="./Profile1.JPG"
+              alt="Portrait of Chanho Joo"
+              loading="eager"
+              fetchpriority="high"
+            >
 
-        <div class="hero-links">
+          </div>
 
-          <a
-            class="button primary-button"
-            href="chanho-joo-cv.pdf"
-            target="_blank"
-          >
-            Curriculum Vitae
-          </a>
+        </div>
 
-          <a
-            class="button secondary-button"
-            href="mailto:chanho0709@gmail.com"
-          >
-            Email
-          </a>
+
+        <!-- Introduction -->
+
+        <div class="hero-copy">
+
+          <p class="eyebrow">
+            Applied Microeconomist
+          </p>
+
+          <h1 id="hero-title">
+            Chanho Joo
+          </h1>
+
+          <p class="academic-position">
+            Ph.D. Candidate in Economics
+            <br>
+            <strong>Seoul National University</strong>
+          </p>
+
+          <p class="hero-description">
+            My research interests are in labor, family,
+            gender, and education.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="button button-primary"
+              href="#research"
+            >
+              Explore research
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="./chanho-joo-cv.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Download CV
+            </a>
+
+          </div>
 
         </div>
 
       </div>
-    </section>
-
-
-    <section id="about" class="section container">
-
-      <p class="section-label">About</p>
-
-      <h2>Research interests</h2>
-
-      <p class="section-introduction">
-        I am an economics researcher interested in labor economics,
-        the economics of education, family economics, and applied
-        microeconomics. My research examines how education, social
-        norms, institutions, and technological change affect
-        individuals, workers, and firms.
-      </p>
 
     </section>
 
 
-    <section id="research" class="section container">
+    <!-- ==================================================
+         Research
+    =================================================== -->
 
-      <p class="section-label">Research</p>
+    <section id="research" class="section">
 
-      <h2>Working papers</h2>
+      <div class="site-shell">
 
-      <article class="research-item">
+        <div class="section-heading">
 
-        <div class="research-status">
-          Working Paper
+          <p class="section-label">
+            Research
+          </p>
+
+          <h2>
+            Working papers and ongoing research
+          </h2>
+
         </div>
 
-        <h3>
-          Education and Attitudes toward Intimate Partner Violence
-        </h3>
 
-        <p>
-          This project examines cross-country variation in the
-          relationship between education and reported acceptance of
-          intimate partner violence using harmonized international
-          household survey data.
-        </p>
+        <div class="research-list">
 
-        <div class="research-links">
-          <a href="#" aria-disabled="true">Abstract</a>
-          <a href="#" aria-disabled="true">Draft coming soon</a>
+          <article class="research-item">
+
+            <div class="research-number">
+              01
+            </div>
+
+            <div class="research-content">
+
+              <p class="research-status">
+                Working Paper
+              </p>
+
+              <h3>
+                Education and Attitudes toward
+                Intimate Partner Violence
+              </h3>
+
+              <p>
+                This project examines cross-country variation
+                in the relationship between women’s education
+                and reported acceptance of intimate partner
+                violence using harmonized international
+                household survey data.
+              </p>
+
+              <div class="research-links">
+
+                <span class="coming-soon">
+                  Draft coming soon
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="research-item">
+
+            <div class="research-number">
+              02
+            </div>
+
+            <div class="research-content">
+
+              <p class="research-status">
+                Research in Progress
+              </p>
+
+              <h3>
+                Artificial Intelligence Adoption
+                and Firm Outcomes
+              </h3>
+
+              <p>
+                This project studies how firms’ adoption of
+                artificial intelligence affects employment,
+                wages, worker transitions, and productivity.
+              </p>
+
+              <div class="research-links">
+
+                <span class="coming-soon">
+                  Project description coming soon
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
         </div>
 
-      </article>
-
-
-      <article class="research-item">
-
-        <div class="research-status">
-          Research in Progress
-        </div>
-
-        <h3>
-          Artificial Intelligence Adoption and Firm Outcomes
-        </h3>
-
-        <p>
-          This project studies how firms' adoption of artificial
-          intelligence affects employment, wages, worker transitions,
-          and productivity.
-        </p>
-
-        <div class="research-links">
-          <a href="#" aria-disabled="true">Project description</a>
-        </div>
-
-      </article>
-
-
-      <article class="research-item">
-
-        <div class="research-status">
-          Add another project
-        </div>
-
-        <h3>Title of Your Paper</h3>
-
-        <p>
-          Add a short description of the research question, data,
-          empirical method, and main contribution.
-        </p>
-
-        <div class="research-links">
-          <a href="papers/paper-title.pdf" target="_blank">
-            PDF
-          </a>
-        </div>
-
-      </article>
+      </div>
 
     </section>
 
 
-    <section id="teaching" class="section container">
+    <!-- ==================================================
+         News
+    =================================================== -->
 
-      <p class="section-label">Teaching</p>
+    <section id="news" class="section section-light">
 
-      <h2>Teaching experience</h2>
+      <div class="site-shell news-grid">
 
-      <div class="simple-list">
+        <div class="section-heading">
+
+          <p class="section-label">
+            News
+          </p>
+
+          <h2>
+            Recent updates
+          </h2>
+
+        </div>
+
+
+        <div class="news-list">
+
+          <article class="news-item">
+
+            <time datetime="2026">
+              2026
+            </time>
+
+            <p>
+              Personal academic website launched.
+            </p>
+
+          </article>
+
+
+          <article class="news-item">
+
+            <time datetime="2026">
+              2026
+            </time>
+
+            <p>
+              Research updates will be posted here.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         Contact
+    =================================================== -->
+
+    <section id="contact" class="contact-section">
+
+      <div class="site-shell contact-grid">
 
         <div>
-          <strong>Course title</strong>
-          <span>Teaching Assistant, Seoul National University</span>
+
+          <p class="section-label section-label-light">
+            Contact
+          </p>
+
+          <h2>
+            Get in touch
+          </h2>
+
         </div>
 
-        <div>
-          <strong>Course title</strong>
-          <span>Teaching Assistant, Seoul National University</span>
-        </div>
 
-      </div>
+        <div class="contact-information">
 
-    </section>
+          <p>
+            Department of Economics
+            <br>
+            Seoul National University
+          </p>
 
-
-    <section id="contact" class="section contact-section">
-
-      <div class="container">
-
-        <p class="section-label">Contact</p>
-
-        <h2>Get in touch</h2>
-
-        <p>
-          Email:
           <a href="mailto:chanho0709@gmail.com">
             chanho0709@gmail.com
           </a>
-        </p>
 
-        <p>
-          Department of Economics<br>
-          Seoul National University
-        </p>
+        </div>
 
       </div>
 
@@ -237,15 +351,24 @@
   </main>
 
 
+  <!-- ==================================================
+       Footer
+  =================================================== -->
+
   <footer class="site-footer">
-    <div class="container">
+
+    <div class="site-shell footer-inner">
 
       <p>
-        © 2026 Chan Ho Joo.
-        Hosted with GitHub Pages.
+        © 2026 Chanho Joo
+      </p>
+
+      <p>
+        Hosted with GitHub Pages
       </p>
 
     </div>
+
   </footer>
 
 </body>
