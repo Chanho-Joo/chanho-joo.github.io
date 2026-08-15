@@ -1105,3 +1105,413 @@ section {
   }
 
 }
+
+/* ==================================================
+   Final compact profile layout
+================================================== */
+
+:root {
+  --max-width: 1180px;
+  --side-padding: 5vw;
+}
+
+
+/* ==================================================
+   Header
+================================================== */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-direction: row;
+
+  gap: 40px;
+}
+
+
+/* Home and name */
+
+.header-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.home-link {
+  color: var(--navy);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.brand-name {
+  padding-left: 18px;
+
+  border-left: 1px solid var(--line);
+
+  color: var(--navy);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+/* Navigation */
+
+.main-navigation {
+  width: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 30px;
+}
+
+.main-navigation a {
+  color: var(--navy-soft);
+
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+/* ==================================================
+   Hero
+================================================== */
+
+.hero {
+  min-height: auto;
+
+  display: block;
+
+  padding: 76px 0 90px;
+}
+
+.hero-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 330px)
+    minmax(0, 680px);
+
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(55px, 7vw, 90px);
+}
+
+
+/* Remove previous photo glow */
+
+.portrait-column::before {
+  display: none;
+}
+
+
+/* Smaller rectangular photo */
+
+.portrait-column {
+  display: flex;
+  justify-content: center;
+}
+
+.portrait-frame {
+  width: 100%;
+  max-width: 320px;
+
+  aspect-ratio: 3518 / 4185;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: 0;
+
+  background: transparent;
+
+  box-shadow:
+    0 16px 36px rgba(34, 55, 84, 0.12);
+}
+
+.portrait-frame::after {
+  display: none;
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 0;
+}
+
+
+/* ==================================================
+   Profile text
+================================================== */
+
+.hero-copy {
+  max-width: 680px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+
+  color: var(--navy);
+
+  font-size: 11px;
+  font-weight: 750;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+
+/*
+  This replaces the previously oversized name.
+*/
+
+.hero .profile-title {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: clamp(31px, 3.2vw, 43px);
+  font-weight: 500;
+
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+.profile-affiliation {
+  margin: 8px 0 0;
+
+  color: var(--navy);
+
+  font-size: 21px;
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+.profile-bio {
+  max-width: 650px;
+
+  margin: 24px 0 0;
+
+  color: var(--muted);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* Profile facts */
+
+.profile-details {
+  max-width: 650px;
+
+  margin: 30px 0 0;
+  padding: 20px 0;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-details div {
+  display: grid;
+
+  grid-template-columns:
+    130px
+    minmax(0, 1fr);
+
+  gap: 22px;
+
+  padding: 6px 0;
+}
+
+.profile-details dt {
+  color: var(--navy);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.profile-details dd {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.profile-details a {
+  color: var(--navy);
+}
+
+
+/* Simple profile links */
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 28px;
+
+  margin-top: 25px;
+}
+
+.profile-links a {
+  padding-bottom: 3px;
+
+  border-bottom: 1px solid var(--navy);
+
+  color: var(--navy);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile-links a:hover {
+  opacity: 0.65;
+}
+
+
+/* ==================================================
+   Tablet
+================================================== */
+
+@media (max-width: 850px) {
+
+  :root {
+    --side-padding: 24px;
+  }
+
+  .header-inner {
+    min-height: auto;
+
+    flex-direction: row;
+    align-items: center;
+
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .main-navigation {
+    gap: 18px;
+  }
+
+  .hero {
+    padding: 55px 0 72px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+  }
+
+  .portrait-column {
+    justify-content: flex-start;
+  }
+
+  .portrait-frame {
+    width: min(70vw, 300px);
+  }
+
+  .hero-copy {
+    max-width: 680px;
+  }
+
+}
+
+
+/* ==================================================
+   Mobile
+================================================== */
+
+@media (max-width: 600px) {
+
+  .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 13px;
+  }
+
+  .header-brand {
+    gap: 13px;
+  }
+
+  .brand-name {
+    padding-left: 13px;
+
+    font-size: 16px;
+  }
+
+  .main-navigation {
+    gap: 20px;
+  }
+
+  .main-navigation a {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding-top: 38px;
+  }
+
+  .portrait-frame {
+    width: min(82vw, 270px);
+  }
+
+  .hero .profile-title {
+    font-size: 31px;
+  }
+
+  .profile-affiliation {
+    font-size: 19px;
+  }
+
+  .profile-bio {
+    font-size: 15.5px;
+  }
+
+  .profile-details div {
+    grid-template-columns: 1fr;
+
+    gap: 2px;
+
+    padding: 8px 0;
+  }
+
+}
