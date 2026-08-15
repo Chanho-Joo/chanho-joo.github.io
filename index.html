@@ -20,30 +20,133 @@
 
 <body>
 
-  <!-- ==================================================
-       Header
-  =================================================== -->
-
   <header class="site-header">
 
-    <div class="site-shell header-inner">
+  <div class="site-shell header-inner">
 
-      <a
-        class="monogram"
-        href="#top"
-        aria-label="Chanho Joo homepage"
-      >
-        CJ
+    <div class="header-brand">
+
+      <a class="home-link" href="#top">
+        Home
       </a>
 
-      <nav class="main-navigation" aria-label="Main navigation">
+      <a class="brand-name" href="#top">
+        Chanho Joo
+      </a>
+
+    </div>
+
+
+    <nav class="main-navigation" aria-label="Main navigation">
+
+      <a href="#research">
+        Research
+      </a>
+
+      <a
+        href="./chanho-joo-cv.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        CV
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+    <section class="hero" aria-labelledby="profile-title">
+
+  <div class="site-shell hero-grid">
+
+    <!-- Profile photo -->
+
+    <div class="portrait-column">
+
+      <div class="portrait-frame">
+
+        <img
+          src="./Profile1.JPG"
+          alt="Portrait of Chanho Joo"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- Profile information -->
+
+    <div class="hero-copy">
+
+      <p class="eyebrow">
+        Applied Microeconomist
+      </p>
+
+      <h1 id="profile-title" class="profile-title">
+        Ph.D. Candidate in Economics
+      </h1>
+
+      <p class="profile-affiliation">
+        Seoul National University
+      </p>
+
+      <p class="profile-bio">
+        I am a Ph.D. candidate in Economics at Seoul National
+        University. My research interests are in labor economics,
+        family economics, the economics of education, and gender.
+      </p>
+
+      <p class="profile-bio">
+        My current research examines how education and social norms
+        shape attitudes toward intimate partner violence, and how
+        firms’ adoption of artificial intelligence affects employment,
+        wages, and worker transitions.
+      </p>
+
+
+      <dl class="profile-details">
+
+        <div>
+          <dt>Research fields</dt>
+
+          <dd>
+            Labor, family, gender, and education
+          </dd>
+        </div>
+
+        <div>
+          <dt>Affiliation</dt>
+
+          <dd>
+            Department of Economics,
+            Seoul National University
+          </dd>
+        </div>
+
+        <div>
+          <dt>Email</dt>
+
+          <dd>
+            <a href="mailto:chanho0709@gmail.com">
+              chanho0709@gmail.com
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+
+      <div class="profile-links">
 
         <a href="#research">
-          Research
-        </a>
-
-        <a href="#news">
-          News
+          View research
         </a>
 
         <a
@@ -51,104 +154,16 @@
           target="_blank"
           rel="noopener"
         >
-          CV
+          Curriculum Vitae
         </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
-        <a
-          class="language-link"
-          href="./ko/"
-        >
-          한국어
-        </a>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <main id="top">
-
-    <!-- ==================================================
-         Hero
-         Photo on the left, text on the right
-    =================================================== -->
-
-    <section class="hero" aria-labelledby="hero-title">
-
-      <div class="site-shell hero-grid">
-
-        <!-- Profile photo -->
-
-        <div class="portrait-column">
-
-          <div class="portrait-frame">
-
-            <img
-              src="./Profile1.JPG"
-              alt="Portrait of Chanho Joo"
-              loading="eager"
-              fetchpriority="high"
-            >
-
-          </div>
-
-        </div>
-
-
-        <!-- Introduction -->
-
-        <div class="hero-copy">
-
-          <p class="eyebrow">
-            Applied Microeconomist
-          </p>
-
-          <h1 id="hero-title">
-            Chanho Joo
-          </h1>
-
-          <p class="academic-position">
-            Ph.D. Candidate in Economics
-            <br>
-            <strong>Seoul National University</strong>
-          </p>
-
-          <p class="hero-description">
-            My research interests are in labor, family,
-            gender, and education.
-          </p>
-
-          <div class="hero-actions">
-
-            <a
-              class="button button-primary"
-              href="#research"
-            >
-              Explore research
-            </a>
-
-            <a
-              class="button button-secondary"
-              href="./chanho-joo-cv.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              Download CV
-            </a>
-
-          </div>
-
-        </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </div>
+
+</section>
 
 
     <!-- ==================================================
@@ -181,60 +196,7 @@
 
 </section>
 
-    <!-- ==================================================
-         News
-    =================================================== -->
-
-    <section id="news" class="section section-light">
-
-      <div class="site-shell news-grid">
-
-        <div class="section-heading">
-
-          <p class="section-label">
-            News
-          </p>
-
-          <h2>
-            Recent updates
-          </h2>
-
-        </div>
-
-
-        <div class="news-list">
-
-          <article class="news-item">
-
-            <time datetime="2026">
-              2026
-            </time>
-
-            <p>
-              Personal academic website launched.
-            </p>
-
-          </article>
-
-
-          <article class="news-item">
-
-            <time datetime="2026">
-              2026
-            </time>
-
-            <p>
-              Research updates will be posted here.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
+   
 
     <!-- ==================================================
          Contact
