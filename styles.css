@@ -1005,3 +1005,103 @@ section {
 
   border-radius: 0;
 }
+/* ==================================================
+   Simple research list
+================================================== */
+
+.research-section {
+  padding: 68px 0 76px;
+
+  border-top: 1px solid var(--line);
+
+  /*
+    Use var(--background) instead if you want
+    the same background as the hero section.
+  */
+  background: var(--background-light);
+}
+
+
+/* Underlined section heading */
+
+.research-list-heading {
+  margin: 0 0 26px;
+
+  color: #292929;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: 22px;
+  font-weight: 400;
+
+  line-height: 1.35;
+  letter-spacing: 0;
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+
+/* Research entries */
+
+.publication-list {
+  max-width: 1200px;
+}
+
+.publication-entry {
+  margin: 0 0 22px;
+
+  color: #303030;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.publication-entry:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Working-paper status */
+
+.paper-status {
+  font-style: italic;
+  font-weight: 600;
+}
+
+
+/* Mobile */
+
+@media (max-width: 560px) {
+
+  .research-section {
+    padding: 52px 0 58px;
+  }
+
+  .research-list-heading {
+    margin-bottom: 20px;
+    font-size: 19px;
+  }
+
+  .publication-entry {
+    margin-bottom: 18px;
+
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+}
