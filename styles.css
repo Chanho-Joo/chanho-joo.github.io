@@ -1,5 +1,5 @@
 /* ==================================================
-   Design variables
+   1. Design variables
 ================================================== */
 
 :root {
@@ -11,22 +11,20 @@
   --navy-soft: #253753;
   --text: #17233a;
   --muted: #5c6678;
-
   --line: #dedbd3;
 
-  --photo-background-top: #bfd0e2;
-  --photo-background-bottom: #7e9fbe;
-
-  --max-width: 1540px;
-  --side-padding: 7vw;
+  --max-width: 1180px;
+  --side-padding: 5vw;
 }
 
 
 /* ==================================================
-   Base
+   2. Base
 ================================================== */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -47,7 +45,7 @@ body {
     Helvetica,
     sans-serif;
 
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
 
   -webkit-font-smoothing: antialiased;
@@ -61,15 +59,16 @@ img {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-button,
-a {
   -webkit-tap-highlight-color: transparent;
 }
 
+a:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 4px;
+}
+
 section {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 90px;
 }
 
 .site-shell {
@@ -77,13 +76,12 @@ section {
     var(--max-width),
     calc(100% - (var(--side-padding) * 2))
   );
-
   margin: 0 auto;
 }
 
 
 /* ==================================================
-   Header
+   3. Header
 ================================================== */
 
 .site-header {
@@ -91,53 +89,53 @@ section {
   z-index: 100;
 
   width: 100%;
+
   background: var(--background);
+  border-bottom: 1px solid var(--line);
 }
 
 .header-inner {
-  min-height: 96px;
+  min-height: 76px;
 
   display: flex;
-  align-items:  start;
+  align-items: center;
   justify-content: space-between;
 
   gap: 40px;
 }
 
-
-/* Round CJ logo */
-
-.monogram {
-  width: 58px;
-  height: 58px;
-
-  display: inline-flex;
+.header-brand {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 18px;
+}
 
-  flex: 0 0 auto;
-
-  border-radius: 50%;
-
-  background: var(--navy);
-  color: #ffffff;
-
-  font-size: 18px;
+.home-link {
+  color: var(--navy);
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: -0.04em;
-
-  transition:
-    transform 180ms ease,
-    background-color 180ms ease;
 }
 
-.monogram:hover {
-  background: var(--navy-soft);
-  transform: translateY(-2px);
+.brand-name {
+  padding-left: 18px;
+
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: 16px;
+  font-weight: 400;
 }
 
-
-/* Navigation */
+.home-link:hover,
+.brand-name:hover {
+  color: var(--navy);
+}
 
 .main-navigation {
   display: flex;
@@ -145,21 +143,18 @@ section {
   justify-content: flex-end;
   flex-wrap: wrap;
 
-  gap: 38px;
+  gap: 30px;
 }
 
 .main-navigation a {
   position: relative;
 
   color: var(--navy-soft);
-
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
-
-  transition: color 160ms ease;
 }
 
-.main-navigation a:not(.language-link)::after {
+.main-navigation a::after {
   content: "";
 
   position: absolute;
@@ -173,1089 +168,56 @@ section {
 
   transform: scaleX(0);
   transform-origin: right;
-
   transition: transform 180ms ease;
 }
 
-.main-navigation a:not(.language-link):hover::after {
+.main-navigation a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-.language-link {
-  padding: 11px 20px;
-
-  border: 1px solid var(--line);
-  border-radius: 999px;
-
-  transition:
-    border-color 180ms ease,
-    background-color 180ms ease;
-}
-
-.language-link:hover {
-  border-color: var(--navy);
-  background: var(--surface);
-}
-
 
 /* ==================================================
-   Hero
+   4. Profile / Hero
 ================================================== */
 
 .hero {
-  min-height: calc(100svh - 96px);
-
-  display: flex;
-  align-items: center;
-
-  padding: 70px 0 100px;
+  padding: 72px 0 88px;
 }
 
 .hero-grid {
   display: grid;
-
-  /*
-    Photo on the left
-    Text on the right
-  */
   grid-template-columns:
-    minmax(350px, 0.82fr)
-    minmax(540px, 1.18fr);
-
-  align-items: center;
-
-  gap: clamp(70px, 8vw, 150px);
-}
-
-
-/* Profile photo column */
-
-.portrait-column {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 0;
-}
-
-.portrait-column::before {
-  content: "";
-
-  position: absolute;
-
-  width: 118%;
-  height: 92%;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(163, 188, 214, 0.28) 0%,
-      rgba(163, 188, 214, 0.12) 45%,
-      rgba(163, 188, 214, 0) 72%
-    );
-
-  filter: blur(12px);
-
-  z-index: 0;
-}
-
-
-/* Arched photograph */
-
-.portrait-frame {
-  position: relative;
-  z-index: 1;
-
-  width: min(100%, 510px);
-  aspect-ratio: 4 / 5;
-
-  padding: 13px;
-
-  overflow: hidden;
-
-  border: 1px solid rgba(255, 255, 255, 0.62);
-
-  /*
-    Large values on the top corners create
-    the arched shape.
-  */
-  border-radius:
-    999px
-    999px
-    38px
-    38px;
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--photo-background-top),
-      var(--photo-background-bottom)
-    );
-
-  box-shadow:
-    0 28px 65px rgba(34, 55, 84, 0.16);
-}
-
-.portrait-frame::after {
-  content: "";
-
-  position: absolute;
-  inset: 18px;
-
-  border: 1px solid rgba(255, 255, 255, 0.34);
-
-  border-radius:
-    999px
-    999px
-    27px
-    27px;
-
-  pointer-events: none;
-}
-
-.portrait-frame img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  /*
-    Change 25% to 20%, 30%, or 40%
-    if the face needs to move vertically.
-  */
-  object-position: center 25%;
-
-  border-radius:
-    999px
-    999px
-    27px
-    27px;
-}
-
-
-/* Hero text */
-
-.hero-copy {
-  position: relative;
-  z-index: 2;
-
-  max-width: 850px;
-}
-
-.eyebrow {
-  margin: 0 0 26px;
-
-  color: var(--navy);
-
-  font-size: 14px;
-  font-weight: 750;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  margin: 0;
-
-  color: var(--navy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: clamp(72px, 8.5vw, 145px);
-  font-weight: 500;
-
-  line-height: 0.86;
-  letter-spacing: -0.07em;
-}
-
-.academic-position {
-  margin: 52px 0 0;
-
-  color: var(--navy);
-
-  font-size: clamp(25px, 2.2vw, 38px);
-  font-weight: 500;
-
-  line-height: 1.42;
-  letter-spacing: -0.035em;
-}
-
-.academic-position strong {
-  font-weight: 700;
-}
-
-.hero-description {
-  max-width: 720px;
-
-  margin: 36px 0 0;
-
-  color: var(--muted);
-
-  font-size: clamp(18px, 1.4vw, 23px);
-  line-height: 1.65;
-}
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 16px;
-
-  margin-top: 42px;
-}
-
-
-/* Buttons */
-
-.button {
-  min-height: 64px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 14px 29px;
-
-  border: 1px solid var(--navy);
-  border-radius: 999px;
-
-  font-size: 17px;
-  font-weight: 700;
-
-  transition:
-    transform 180ms ease,
-    background-color 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-}
-
-.button-primary {
-  background: var(--navy);
-  color: #ffffff;
-}
-
-.button-primary:hover {
-  background: var(--navy-soft);
-  border-color: var(--navy-soft);
-}
-
-.button-secondary {
-  background: transparent;
-  color: var(--navy);
-  border-color: var(--line);
-}
-
-.button-secondary:hover {
-  background: var(--surface);
-  border-color: var(--navy);
-}
-
-
-/* ==================================================
-   General sections
-================================================== */
-
-.section {
-  padding: 130px 0;
-
-  border-top: 1px solid var(--line);
-}
-
-.section-light {
-  background: var(--background-light);
-}
-
-.section-heading {
-  max-width: 900px;
-
-  margin-bottom: 70px;
-}
-
-.section-label {
-  margin: 0 0 16px;
-
-  color: var(--navy);
-
-  font-size: 13px;
-  font-weight: 750;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.section h2,
-.contact-section h2 {
-  margin: 0;
-
-  color: var(--navy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: clamp(44px, 5.8vw, 82px);
-  font-weight: 500;
-
-  line-height: 1.05;
-  letter-spacing: -0.055em;
-}
-
-
-/* ==================================================
-   Research
-================================================== */
-
-.research-list {
-  border-top: 1px solid var(--line);
-}
-
-.research-item {
-  display: grid;
-
-  grid-template-columns:
-    minmax(80px, 0.25fr)
-    minmax(0, 1.75fr);
-
-  gap: 45px;
-
-  padding: 54px 0;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.research-number {
-  color: var(--muted);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: 28px;
-}
-
-.research-content {
-  max-width: 900px;
-}
-
-.research-status {
-  margin: 0 0 14px;
-
-  color: var(--muted);
-
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-.research-content h3 {
-  margin: 0;
-
-  color: var(--navy);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: clamp(29px, 3vw, 45px);
-  font-weight: 500;
-
-  line-height: 1.2;
-  letter-spacing: -0.035em;
-}
-
-.research-content > p:not(.research-status) {
-  max-width: 800px;
-
-  margin: 22px 0 0;
-
-  color: var(--muted);
-
-  font-size: 18px;
-  line-height: 1.75;
-}
-
-.research-links {
-  margin-top: 24px;
-}
-
-.coming-soon {
-  color: var(--navy);
-
-  font-size: 14px;
-  font-weight: 700;
-}
-
-
-/* ==================================================
-   News
-================================================== */
-
-.news-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(300px, 0.85fr)
-    minmax(400px, 1.15fr);
-
-  gap: 100px;
-}
-
-.news-grid .section-heading {
-  margin-bottom: 0;
-}
-
-.news-list {
-  border-top: 1px solid var(--line);
-}
-
-.news-item {
-  display: grid;
-
-  grid-template-columns: 90px 1fr;
-
-  gap: 30px;
-
-  padding: 30px 0;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.news-item time {
-  color: var(--muted);
-
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.news-item p {
-  margin: 0;
-
-  color: var(--text);
-
-  font-size: 18px;
-}
-
-
-/* ==================================================
-   Contact
-================================================== */
-
-.contact-section {
-  padding: 130px 0;
-
-  background: var(--navy);
-  color: #ffffff;
-}
-
-.contact-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(300px, 1fr)
-    minmax(350px, 1fr);
-
-  align-items: end;
-
-  gap: 90px;
-}
-
-.section-label-light {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-section h2 {
-  color: #ffffff;
-}
-
-.contact-information {
-  padding-bottom: 6px;
-}
-
-.contact-information p {
-  margin: 0 0 26px;
-
-  color: rgba(255, 255, 255, 0.7);
-
-  font-size: 19px;
-}
-
-.contact-information a {
-  display: inline-block;
-
-  padding-bottom: 4px;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
-
-  color: #ffffff;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: clamp(25px, 3vw, 39px);
-}
-
-
-/* ==================================================
-   Footer
-================================================== */
-
-.site-footer {
-  padding: 28px 0;
-
-  background: var(--navy);
-  color: rgba(255, 255, 255, 0.55);
-
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 30px;
-}
-
-.footer-inner p {
-  margin: 0;
-
-  font-size: 13px;
-}
-
-
-/* ==================================================
-   Medium screens
-================================================== */
-
-@media (max-width: 1150px) {
-
-  :root {
-    --side-padding: 5vw;
-  }
-
-  .hero-grid {
-    grid-template-columns:
-      minmax(320px, 0.85fr)
-      minmax(460px, 1.15fr);
-
-    gap: 65px;
-  }
-
-  .hero h1 {
-    font-size: clamp(67px, 9vw, 105px);
-  }
-
-  .main-navigation {
-    gap: 25px;
-  }
-
-}
-
-
-/* ==================================================
-   Tablets and mobile
-================================================== */
-
-@media (max-width: 860px) {
-
-  :root {
-    --side-padding: 24px;
-  }
-
-  .header-inner {
-    min-height: auto;
-
-    align-items: flex-start;
-    flex-direction: column;
-
-    padding-top: 22px;
-    padding-bottom: 22px;
-
-    gap: 22px;
-  }
-
-  .main-navigation {
-    width: 100%;
-
-    justify-content: flex-start;
-
-    gap: 16px 24px;
-  }
-
-  .main-navigation a {
-    font-size: 15px;
-  }
-
-  .language-link {
-    padding: 7px 15px;
-  }
-
-  .hero {
-    min-height: auto;
-
-    padding: 55px 0 90px;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-
-    gap: 60px;
-  }
-
-  /*
-    The photo remains above the text
-    on mobile.
-  */
-
-  .portrait-column {
-    justify-content: flex-start;
-  }
-
-  .portrait-frame {
-    width: min(78vw, 460px);
-  }
-
-  .hero-copy {
-    max-width: 720px;
-  }
-
-  .hero h1 {
-    font-size: clamp(66px, 17vw, 105px);
-  }
-
-  .academic-position {
-    margin-top: 38px;
-  }
-
-  .section {
-    padding: 90px 0;
-  }
-
-  .news-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-
-    gap: 55px;
-  }
-
-  .news-grid .section-heading {
-    margin-bottom: 0;
-  }
-
-}
-
-
-/* ==================================================
-   Small mobile screens
-================================================== */
-
-@media (max-width: 560px) {
-
-  .monogram {
-    width: 50px;
-    height: 50px;
-
-    font-size: 16px;
-  }
-
-  .main-navigation {
-    gap: 13px 18px;
-  }
-
-  .main-navigation a {
-    font-size: 14px;
-  }
-
-  .hero {
-    padding-top: 38px;
-  }
-
-  .portrait-frame {
-    width: 100%;
-
-    padding: 9px;
-
-    border-radius:
-      999px
-      999px
-      28px
-      28px;
-  }
-
-  .portrait-frame::after {
-    inset: 13px;
-
-    border-radius:
-      999px
-      999px
-      20px
-      20px;
-  }
-
-  .portrait-frame img {
-    border-radius:
-      999px
-      999px
-      20px
-      20px;
-  }
-
-  .eyebrow {
-    font-size: 12px;
-  }
-
-  .hero h1 {
-    font-size: clamp(58px, 18vw, 82px);
-  }
-
-  .academic-position {
-    font-size: 23px;
-  }
-
-  .hero-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .button {
-    width: 100%;
-  }
-
-  .research-item {
-    grid-template-columns: 1fr;
-
-    gap: 15px;
-  }
-
-  .research-number {
-    font-size: 20px;
-  }
-
-  .news-item {
-    grid-template-columns: 1fr;
-
-    gap: 7px;
-  }
-
-  .contact-information a {
-    font-size: 23px;
-
-    overflow-wrap: anywhere;
-  }
-
-  .footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
-
-    gap: 5px;
-  }
-
-}
-
-/* Rectangular profile photo */
-
-.portrait-frame {
-  width: min(100%, 510px);
-  aspect-ratio: 3518 / 4185;
-  padding: 0;
-
-  border: 1px solid var(--line);
-  border-radius: 0;
-
-  background: transparent;
-
-  overflow: hidden;
-
-  box-shadow:
-    0 24px 55px rgba(34, 55, 84, 0.14);
-}
-
-.portrait-frame::after {
-  display: none;
-}
-
-.portrait-frame img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center 25%;
-
-  border-radius: 0;
-}
-/* ==================================================
-   Simple research list
-================================================== */
-
-.research-section {
-  padding: 68px 0 76px;
-
-  border-top: 1px solid var(--line);
-
-  /*
-    Use var(--background) instead if you want
-    the same background as the hero section.
-  */
-  background: var(--background-light);
-}
-
-
-/* Underlined section heading */
-
-.research-list-heading {
-  margin: 0 0 26px;
-
-  color: #292929;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: 22px;
-  font-weight: 400;
-
-  line-height: 1.35;
-  letter-spacing: 0;
-
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-
-/* Research entries */
-
-.publication-list {
-  max-width: 1200px;
-}
-
-.publication-entry {
-  margin: 0 0 22px;
-
-  color: #303030;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: 18px;
-  font-weight: 400;
-
-  line-height: 1.6;
-  letter-spacing: 0;
-}
-
-.publication-entry:last-child {
-  margin-bottom: 0;
-}
-
-
-/* Working-paper status */
-
-.paper-status {
-  font-style: italic;
-  font-weight: 600;
-}
-
-
-/* Mobile */
-
-@media (max-width: 560px) {
-
-  .research-section {
-    padding: 52px 0 58px;
-  }
-
-  .research-list-heading {
-    margin-bottom: 20px;
-    font-size: 19px;
-  }
-
-  .publication-entry {
-    margin-bottom: 18px;
-
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-}
-
-/* ==================================================
-   Final compact profile layout
-================================================== */
-
-:root {
-  --max-width: 1180px;
-  --side-padding: 5vw;
-}
-
-
-/* ==================================================
-   Header
-================================================== */
-
-.site-header {
-  border-bottom: 1px solid var(--line);
-}
-
-.header-inner {
-  min-height: 76px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  flex-direction: row;
-
-  gap: 40px;
-}
-
-
-/* Home and name */
-
-.header-brand {
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
-}
-
-.home-link {
-  color: var(--navy);
-
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.brand-name {
-  padding-left: 18px;
-
-  border-left: 1px solid var(--line);
-
-  color: var(--muted);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.brand-name-only {
-  padding-left: 0;
-  border-left: 0;
-}
-
-/* Navigation */
-
-.main-navigation {
-  width: auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  gap: 30px;
-}
-
-.main-navigation a {
-  color: var(--navy-soft);
-
-  font-size: 15px;
-  font-weight: 500;
-}
-
-
-/* ==================================================
-   Hero
-================================================== */
-
-.hero {
-  min-height: auto;
-
-  display: block;
-
-  padding: 76px 0 90px;
-}
-
-.hero-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(260px, 330px)
+    minmax(250px, 310px)
     minmax(0, 680px);
 
   align-items: start;
   justify-content: center;
 
-  gap: clamp(45px, 4.5vw, 68px);
+  gap: clamp(48px, 5vw, 72px);
 }
-
-
-/* Remove previous photo glow */
-
-.portrait-column::before {
-  display: none;
-}
-
-
-/* Smaller rectangular photo */
 
 .portrait-column {
+  align-self: start;
+
   display: flex;
   justify-content: center;
+
+  /* Aligns the top of the photo approximately with the name. */
+  padding-top: 38px;
 }
 
 .portrait-frame {
   width: 100%;
-  max-width: 320px;
-
+  max-width: 300px;
   aspect-ratio: 3518 / 4185;
-
-  padding: 0;
 
   overflow: hidden;
 
   border: 1px solid var(--line);
-  border-radius: 0;
-
   background: transparent;
 
-  box-shadow:
-    0 16px 36px rgba(34, 55, 84, 0.12);
-}
-
-.portrait-frame::after {
-  display: none;
+  box-shadow: 0 16px 36px rgba(34, 55, 84, 0.12);
 }
 
 .portrait-frame img {
@@ -1264,16 +226,10 @@ section {
 
   object-fit: cover;
   object-position: center;
-
-  border-radius: 0;
 }
 
-
-/* ==================================================
-   Profile text
-================================================== */
-
 .hero-copy {
+  align-self: start;
   max-width: 680px;
 }
 
@@ -1284,15 +240,9 @@ section {
 
   font-size: 11px;
   font-weight: 750;
-
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-
-
-/*
-  This replaces the previously oversized name.
-*/
 
 .hero .profile-title {
   margin: 0;
@@ -1307,11 +257,11 @@ section {
 
   font-size: clamp(36px, 2.8vw, 44px);
   font-weight: 500;
-
   line-height: 1.12;
   letter-spacing: -0.035em;
 }
 
+/* Optional: use this class under the name for title and affiliation. */
 .profile-role {
   margin: 10px 0 0;
 
@@ -1319,38 +269,23 @@ section {
 
   font-size: 17px;
   font-weight: 500;
-
   line-height: 1.55;
-}
-
-.profile-affiliation {
-  margin: 8px 0 0;
-
-  color: var(--navy);
-
-  font-size: 21px;
-  font-weight: 600;
-
-  line-height: 1.4;
 }
 
 .profile-bio {
   max-width: 650px;
-
   margin: 24px 0 0;
 
   color: var(--muted);
 
-  font-size: 17px;
-  line-height: 1.75;
+  /* One step larger than the previous 17px setting. */
+  font-size: 18px;
+  line-height: 1.72;
 }
 
 .profile-bio + .profile-bio {
   margin-top: 20px;
 }
-
-
-/* Profile facts */
 
 .profile-details {
   max-width: 650px;
@@ -1364,13 +299,9 @@ section {
 
 .profile-details div {
   display: grid;
-
-  grid-template-columns:
-    130px
-    minmax(0, 1fr);
+  grid-template-columns: 130px minmax(0, 1fr);
 
   gap: 22px;
-
   padding: 6px 0;
 }
 
@@ -1379,7 +310,6 @@ section {
 
   font-size: 12px;
   font-weight: 700;
-
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -1397,15 +327,16 @@ section {
   color: var(--navy);
 }
 
-
-/* Simple profile links */
+.profile-details a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .profile-links {
   display: flex;
   flex-wrap: wrap;
 
   gap: 28px;
-
   margin-top: 25px;
 }
 
@@ -1413,7 +344,6 @@ section {
   padding-bottom: 3px;
 
   border-bottom: 1px solid var(--navy);
-
   color: var(--navy);
 
   font-size: 14px;
@@ -1426,23 +356,198 @@ section {
 
 
 /* ==================================================
-   Tablet
+   5. Research: simple publication-style list
+================================================== */
+
+.research-section {
+  padding: 64px 0 72px;
+
+  border-top: 1px solid var(--line);
+  background: var(--background-light);
+}
+
+.research-list-heading {
+  margin: 0 0 26px;
+
+  color: #292929;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.35;
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.publication-list {
+  max-width: 1100px;
+}
+
+.publication-entry {
+  margin: 0 0 20px;
+
+  color: #303030;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.publication-entry:last-child {
+  margin-bottom: 0;
+}
+
+.publication-title-link {
+  color: inherit;
+}
+
+.publication-title-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.paper-status,
+.publication-venue {
+  font-style: italic;
+  font-weight: 600;
+}
+
+
+/* ==================================================
+   6. Contact
+================================================== */
+
+.contact-section {
+  padding: 76px 0;
+
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 1fr)
+    minmax(320px, 1fr);
+
+  align-items: end;
+  gap: 60px;
+}
+
+.section-label {
+  margin: 0 0 10px;
+
+  color: var(--navy);
+
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.section-label-light {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-section h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: clamp(34px, 3.8vw, 50px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.contact-information {
+  padding-bottom: 4px;
+}
+
+.contact-information p {
+  margin: 0 0 24px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.contact-information a {
+  display: inline-block;
+  padding-bottom: 3px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: clamp(21px, 2.2vw, 30px);
+}
+
+
+/* ==================================================
+   7. Footer
+================================================== */
+
+.site-footer {
+  padding: 22px 0;
+
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.55);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.footer-inner p {
+  margin: 0;
+  font-size: 13px;
+}
+
+
+/* ==================================================
+   8. Tablet
 ================================================== */
 
 @media (max-width: 850px) {
-
   :root {
     --side-padding: 24px;
   }
 
   .header-inner {
     min-height: auto;
-
-    flex-direction: row;
-    align-items: center;
-
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 18px 0;
   }
 
   .main-navigation {
@@ -1450,38 +555,39 @@ section {
   }
 
   .hero {
-    padding: 55px 0 72px;
+    padding: 52px 0 70px;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-
-    gap: 42px;
+    gap: 38px;
   }
 
-  .portrait-column {
-    justify-content: flex-start;
-  }
+.portrait-column {
+  align-self: start;
+  padding-top: 8px;
+}
 
   .portrait-frame {
-    width: min(70vw, 300px);
+    width: min(65vw, 280px);
   }
 
   .hero-copy {
     max-width: 680px;
   }
 
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
 }
 
 
 /* ==================================================
-   Mobile
+   9. Mobile
 ================================================== */
 
 @media (max-width: 600px) {
-
-
-
   .header-inner {
     align-items: flex-start;
     flex-direction: column;
@@ -1495,7 +601,6 @@ section {
 
   .brand-name {
     padding-left: 13px;
-
     font-size: 16px;
   }
 
@@ -1508,31 +613,58 @@ section {
   }
 
   .hero {
-    padding-top: 38px;
+    padding: 38px 0 58px;
   }
 
   .portrait-frame {
-    width: min(82vw, 270px);
+    width: min(78vw, 260px);
   }
 
   .hero .profile-title {
     font-size: 31px;
   }
 
-  .profile-affiliation {
-    font-size: 19px;
+  .profile-role {
+    font-size: 16px;
   }
 
   .profile-bio {
-    font-size: 15.5px;
+    font-size: 16px;
+    line-height: 1.7;
   }
 
   .profile-details div {
     grid-template-columns: 1fr;
-
     gap: 2px;
-
     padding: 8px 0;
   }
 
+  .research-section {
+    padding: 50px 0 56px;
+  }
+
+  .research-list-heading {
+    margin-bottom: 20px;
+    font-size: 19px;
+  }
+
+  .publication-entry {
+    margin-bottom: 17px;
+    font-size: 16px;
+  }
+
+  .contact-section {
+    padding: 58px 0;
+  }
+
+  .contact-information a {
+    font-size: 23px;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
 }
