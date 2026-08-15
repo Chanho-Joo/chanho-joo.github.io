@@ -426,88 +426,6 @@ section {
 }
 
 
-/* ==================================================
-   6. Contact
-================================================== */
-
-.contact-section {
-  padding: 76px 0;
-
-  background: var(--navy);
-  color: #ffffff;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns:
-    minmax(280px, 1fr)
-    minmax(320px, 1fr);
-
-  align-items: end;
-  gap: 60px;
-}
-
-.section-label {
-  margin: 0 0 10px;
-
-  color: var(--navy);
-
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-}
-
-.section-label-light {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-section h2 {
-  margin: 0;
-
-  color: #ffffff;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: clamp(34px, 3.8vw, 50px);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.045em;
-}
-
-.contact-information {
-  padding-bottom: 4px;
-}
-
-.contact-information p {
-  margin: 0 0 24px;
-
-  color: rgba(255, 255, 255, 0.72);
-
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.contact-information a {
-  display: inline-block;
-  padding-bottom: 3px;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
-  color: #ffffff;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    Times,
-    serif;
-
-  font-size: clamp(21px, 2.2vw, 30px);
-}
-
 
 /* ==================================================
    7. Footer
@@ -576,10 +494,6 @@ section {
     max-width: 680px;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 42px;
-  }
 }
 
 
@@ -651,15 +565,6 @@ section {
   .publication-entry {
     margin-bottom: 17px;
     font-size: 16px;
-  }
-
-  .contact-section {
-    padding: 58px 0;
-  }
-
-  .contact-information a {
-    font-size: 23px;
-    overflow-wrap: anywhere;
   }
 
   .footer-inner {
