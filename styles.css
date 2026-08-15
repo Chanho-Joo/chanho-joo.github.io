@@ -419,6 +419,19 @@ section {
   text-underline-offset: 4px;
 }
 
+.publication-links {
+  margin-left: 8px;
+
+  font-size: 0.84em;
+  color: #666;
+}
+
+.publication-links a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .paper-status,
 .publication-venue {
   font-style: italic;
