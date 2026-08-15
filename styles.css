@@ -973,3 +973,35 @@ section {
   }
 
 }
+
+/* Rectangular profile photo */
+
+.portrait-frame {
+  width: min(100%, 510px);
+  aspect-ratio: 3518 / 4185;
+  padding: 0;
+
+  border: 1px solid var(--line);
+  border-radius: 0;
+
+  background: transparent;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 24px 55px rgba(34, 55, 84, 0.14);
+}
+
+.portrait-frame::after {
+  display: none;
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 25%;
+
+  border-radius: 0;
+}
