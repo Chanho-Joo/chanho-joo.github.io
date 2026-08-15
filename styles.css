@@ -98,7 +98,7 @@ section {
   min-height: 96px;
 
   display: flex;
-  align-items: center;
+  align-items:  start;
   justify-content: space-between;
 
   gap: 40px;
@@ -1158,7 +1158,7 @@ section {
 
   border-left: 1px solid var(--line);
 
-  color: var(--navy);
+  color: var(--muted);
 
   font-family:
     Georgia,
@@ -1166,10 +1166,14 @@ section {
     Times,
     serif;
 
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
 }
 
+.brand-name-only {
+  padding-left: 0;
+  border-left: 0;
+}
 
 /* Navigation */
 
@@ -1210,10 +1214,10 @@ section {
     minmax(260px, 330px)
     minmax(0, 680px);
 
-  align-items: center;
+  align-items: start;
   justify-content: center;
 
-  gap: clamp(55px, 7vw, 90px);
+  gap: clamp(45px, 4.5vw, 68px);
 }
 
 
@@ -1301,11 +1305,22 @@ section {
     Times,
     serif;
 
-  font-size: clamp(31px, 3.2vw, 43px);
+  font-size: clamp(36px, 2.8vw, 44px);
   font-weight: 500;
 
-  line-height: 1.18;
+  line-height: 1.12;
   letter-spacing: -0.035em;
+}
+
+.profile-role {
+  margin: 10px 0 0;
+
+  color: var(--navy-soft);
+
+  font-size: 17px;
+  font-weight: 500;
+
+  line-height: 1.55;
 }
 
 .profile-affiliation {
@@ -1326,8 +1341,12 @@ section {
 
   color: var(--muted);
 
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.75;
+}
+
+.profile-bio + .profile-bio {
+  margin-top: 20px;
 }
 
 
@@ -1460,6 +1479,8 @@ section {
 ================================================== */
 
 @media (max-width: 600px) {
+
+
 
   .header-inner {
     align-items: flex-start;
